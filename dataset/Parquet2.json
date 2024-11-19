@@ -9,7 +9,11 @@
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"container": {
+					"value": "@formatDateTime(utcNow(),'yyyy-mm-dd')",
+					"type": "Expression"
+				}
 			},
 			"compressionCodec": "snappy"
 		},
