@@ -45,7 +45,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadata1').output",
+						"value": "@activity('Get Metadata1').output.itemName",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -75,14 +75,12 @@
 									}
 								},
 								"sink": {
-									"type": "ParquetSink",
-									"storeSettings": {
-										"type": "AzureBlobStorageWriteSettings",
-										"copyBehavior": "FlattenHierarchy"
+									"type": "AzureTableSink",
+									"azureTableInsertType": {
+										"value": "@concat(replace(item().name,'.parquet',''),'_',formatDateTime(utcnow(),'yyyyMMdd HHmmss'),'')",
+										"type": "Expression"
 									},
-									"formatSettings": {
-										"type": "ParquetWriteSettings"
-									}
+									"writeBatchSize": 10000
 								},
 								"enableStaging": false,
 								"translator": {
@@ -102,7 +100,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "Parquet1",
+									"referenceName": "AzureTable1",
 									"type": "DatasetReference"
 								}
 							]
