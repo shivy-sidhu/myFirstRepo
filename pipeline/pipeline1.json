@@ -38,14 +38,14 @@
 					{
 						"activity": "Get Metadata1",
 						"dependencyConditions": [
-							"Skipped"
+							"Succeeded"
 						]
 					}
 				],
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadata1').output.itemName",
+						"value": "@activity('Get Metadata1').output",
 						"type": "Expression"
 					},
 					"isSequential": true,
