@@ -1,0 +1,9 @@
+{
+	"name": "ShivisDatafactory01",
+	"location": "westus3",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "582882df-74b5-4ff1-b6d2-bf66c86843d7",
+		"tenantId": "a102f62f-f4aa-4175-ad68-9e47a0535ca0"
+	}
+}
