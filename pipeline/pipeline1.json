@@ -97,25 +97,13 @@
 							"inputs": [
 								{
 									"referenceName": "Parquet1",
-									"type": "DatasetReference",
-									"parameters": {
-										"": {
-											"value": "@item()",
-											"type": "Expression"
-										}
-									}
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
 								{
 									"referenceName": "Parquet1",
-									"type": "DatasetReference",
-									"parameters": {
-										"": {
-											"value": "@concat(replace(item().name,'.parquet',''),'_',formatDateTime(utcnow(),'yyyyMMdd HHmmss'),'.parquet')",
-											"type": "Expression"
-										}
-									}
+									"type": "DatasetReference"
 								}
 							]
 						}
