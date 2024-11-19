@@ -75,12 +75,17 @@
 									}
 								},
 								"sink": {
-									"type": "AzureTableSink",
-									"azureTableInsertType": {
-										"value": "@concat(replace(item().name,'.parquet',''),'_',formatDateTime(utcnow(),'yyyyMMdd HHmmss'),'')",
-										"type": "Expression"
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings",
+										"copyBehavior": {
+											"value": "@concat(replace(item().name,'.parquet',''),'_',formatDateTime(utcnow(),'yyyyMMdd HHmmss'),'.parquet')",
+											"type": "Expression"
+										}
 									},
-									"writeBatchSize": 10000
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
 								},
 								"enableStaging": false,
 								"translator": {
@@ -100,7 +105,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "AzureTable1",
+									"referenceName": "Parquet2",
 									"type": "DatasetReference"
 								}
 							]
